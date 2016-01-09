@@ -2,57 +2,42 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>PeerJS sample</title>
+  <title>SyoChat!</title>
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-  <script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="js/lib/peerjs/peer.min.js"></script>
+  <script type="text/javascript" src="js/chat/chat.js"></script>
+</head> 
+ 
+<body> 
 
-  <script>
-  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  <div id="actions">
+    あなたが使用されている PeerJS ID は <br>
+    <span id="pid"></span>です。<br>
+    接続したいPeerJS ID: <input type="text" id="rid" placeholder="接続したい相手のID入れてね!"><input class="button" type="button" value="接続" id="connect"><br><br>
 
-  var myStream;
-  var peer = new Peer({key: 're6mzexgeewmi'});
-
-  var setOthersStream = function(stream){
-    $('#others-video').prop('src', URL.createObjectURL(stream));
-  };
-
-  var setMyStream = function(stream){
-    myStream = stream;
-    $('#video').prop('src', URL.createObjectURL(stream));
-  };
-
-  peer.on('open', function(id){
-    $('#peer-id').text(id);
-  });
-
-  peer.on('call', function(call){
-    call.answer(myStream);
-    call.on('stream', setOthersStream);
-  });
-
-  $(function(){
-    navigator.getUserMedia({audio: true, video: true}, setMyStream, function(){});
-
-    $('#call').on('click', function(){
-      var call = peer.call($('#others-peer-id').val(), myStream);
-      call.on('stream', setOthersStream);
-    });
-  });
-
-  peer.on('error', function(e){
-    console.log(e.message);
-  });
-  </script>
-</head>
-
-<body>
-  <p>あなたのID : <span id="peer-id"></span></p>
-  <div id="dial">
-    <input type="text" id="others-peer-id" placeholder="相手のIDを入力" /><button id="call">コール</button>
+    <form id="send">
+      <input type="text" id="text" placeholder="メッセージをいれてね!"><input class="button" type="submit" value="送信">
+    </form>
+    <button id="close">接続を閉じます。</button>
   </div>
 
-  <video id="video" autoplay muted></video>
-  <video id="others-video" autoplay></video>
+  <div id="wrap">
+    <div id="connections">
+      <span class="filler">
+        接続している人がおりません。
+      </span>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div id="box" style="background: #fff; font-size: 18px;padding:40px 30px; text-align: center;">
+    ここにドラッグしたファイルは、チャット相手と接続とき送信されます。
+  </div>
+  
+  
+  <div class="warning browser">
+    <div class="important">あなたのブラウザのバージョン: <span id="browsers"></span></div>
+  </div>
 </body>
 </html>
