@@ -11,6 +11,7 @@
     "gulp-shell": "^0.5.1",
     "gulp-tsconfig-update": "^1.1.1",
     "jquery": "^2.2.0",
+    "peer": "^0.2.8",
     "tsd": "^0.6.5"
   }
 }
