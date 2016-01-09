@@ -42,7 +42,7 @@ gulp.task('tsbuild', function() {
 gulp.task('tsdevbuild', function() {
     var shell = require('gulp-shell');
     // tsファイルのビルド
-    gulp.src('').pipe(shell('./node_modules/.bin/tsc --sourcemap'));
+    gulp.src('').pipe(shell('./node_modules/.bin/tsc --sourcemap --watch'));
 
 });
 
