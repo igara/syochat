@@ -3,7 +3,8 @@ class Chat {
 	constructor() {
 		var peer = new Peer({
 			// API キー
-			key: 'dqdjcwf89deoecdi'
+			key: 'dqdjcwf89deoecdi',
+			secure: true
 		});
 		var connectedPeers = {};
 
