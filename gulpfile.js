@@ -27,8 +27,6 @@ gulp.task('default', function() {
  * command:./node_modules/.bin/gulp tsbuild
  */
 gulp.task('tsbuild', function() {
-    // gulpのコマンドによって複製・ビルドされたファイルを削除する
-    clean();
     var shell = require('gulp-shell');
     // tsファイルのビルド
     gulp.src('').pipe(shell('./node_modules/.bin/tsc'));
@@ -42,8 +40,6 @@ gulp.task('tsbuild', function() {
  * command:./node_modules/.bin/gulp tsdevbuild
  */
 gulp.task('tsdevbuild', function() {
-    // gulpのコマンドによって複製・ビルドされたファイルを削除する
-    clean();
     var shell = require('gulp-shell');
     // tsファイルのビルド
     gulp.src('').pipe(shell('./node_modules/.bin/tsc --sourcemap'));

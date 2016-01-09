@@ -12,5 +12,8 @@
         "suppressImplicitAnyIndexErrors": true,
         "sourceMap": false,
         "target": "ES5"
-    }
+    },
+    "files": [
+        "js/chat/chat.ts"
+    ]
 }
