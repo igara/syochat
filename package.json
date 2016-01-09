@@ -1,0 +1,16 @@
+{
+  "name": "igara",
+  "version": "1.0.0",
+  "dependencies": {
+    "peerjs": "^0.3.14",
+    "typescript": "^1.7.5"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-shell": "^0.5.1",
+    "gulp-tsconfig-update": "^1.1.1",
+    "jquery": "^2.2.0",
+    "tsd": "^0.6.5"
+  }
+}

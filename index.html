@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PeerJS sample</title>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+
+  <script>
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+  var myStream;
+  var peer = new Peer({key: 're6mzexgeewmi'});
+
+  var setOthersStream = function(stream){
+    $('#others-video').prop('src', URL.createObjectURL(stream));
+  };
+
+  var setMyStream = function(stream){
+    myStream = stream;
+    $('#video').prop('src', URL.createObjectURL(stream));
+  };
+
+  peer.on('open', function(id){
+    $('#peer-id').text(id);
+  });
+
+  peer.on('call', function(call){
+    call.answer(myStream);
+    call.on('stream', setOthersStream);
+  });
+
+  $(function(){
+    navigator.getUserMedia({audio: true, video: true}, setMyStream, function(){});
+
+    $('#call').on('click', function(){
+      var call = peer.call($('#others-peer-id').val(), myStream);
+      call.on('stream', setOthersStream);
+    });
+  });
+
+  peer.on('error', function(e){
+    console.log(e.message);
+  });
+  </script>
+</head>
+
+<body>
+  <p>あなたのID : <span id="peer-id"></span></p>
+  <div id="dial">
+    <input type="text" id="others-peer-id" placeholder="相手のIDを入力" /><button id="call">コール</button>
+  </div>
+
+  <video id="video" autoplay muted></video>
+  <video id="others-video" autoplay></video>
+</body>
+</html>
