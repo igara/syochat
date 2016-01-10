@@ -3,8 +3,11 @@ class Chat {
 	constructor() {
 		var peer = new Peer({
 			// API キー
-			key: 'dqdjcwf89deoecdi',
-			secure: true
+			key: 'peerjs',
+			secure: true,
+			host: 'syonet.work',
+			port: 9999,
+			debug: 3
 		});
 		var connectedPeers = {};
 
