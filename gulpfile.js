@@ -18,6 +18,12 @@ gulp.task('default', function() {
     gulp.src(jqueryPath + '/dist/**')
         .pipe(gulp.dest('js/lib/jquery'));
 
+    var shell = require('gulp-shell');
+    // skywayのmultiparty.jsをダウンロード
+    gulp.src('').pipe(shell('mkdir js/lib/skyway'))
+    .pipe(shell('cd js/lib/skyway'))
+    .pipe(shell('wget https://skyway.io/dist/multiparty.min.js'))
+    .pipe(shell('cd ../../../'));
 
 });
 
