@@ -12,14 +12,15 @@
 <body> 
 
   <div id="actions">
-    あなたが使用されている PeerJS ID は <br>
+    あなたが使用されている PeerJS ID は <br><br>
     <span id="pid"></span>です。<br>
-    接続したいPeerJS ID: <input type="text" id="rid" placeholder="接続したい相手のID入れてね!"><input class="button" type="button" value="接続" id="connect"><br><br>
+    接続したいPeerJS ID: <br>
+    <input type="text" id="rid" placeholder="接続したい相手のID入れてね!">
+    <input class="button" type="button" value="接続" id="connect"><br><br>
 
     <form id="send">
       <input type="text" id="text" placeholder="メッセージをいれてね!"><input class="button" type="submit" value="送信">
     </form>
-    <button id="close">接続を閉じます。</button>
   </div>
 
   <div id="wrap">
@@ -39,5 +40,6 @@
   <div class="warning browser">
     <div class="important">あなたのブラウザのバージョン: <span id="browsers"></span></div>
   </div>
+  <button id="close">接続を閉じます。</button>
 </body>
 </html>

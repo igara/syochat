@@ -31,7 +31,7 @@ class Chat {
 			if (c.label === 'chat') {
 				var chatbox = $('<div></div>').addClass('connection').addClass('active').attr('id', c.peer);
 				var header = $('<h1></h1>').html('<strong>' + c.peer + '</strong>' + 'がチャットに参加しました!');
-				var messages = $('<div><em>接続状態です。</em></div>').addClass('messages');
+				var messages = $('<div><em>接続中</em></div>').addClass('messages');
 				chatbox.append(header);
 				chatbox.append(messages);
 
@@ -77,6 +77,8 @@ class Chat {
 		}
 
 		$(document).ready(function() {
+			
+
 			// Prepare file drop box.
 			var box = $('#box');
 			box.on('dragenter', doNothing);
