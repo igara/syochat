@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "peerjs": "^0.3.14",
-    "typescript": "^1.7.5"
+    "typescript": "^1.7.3"
   },
   "devDependencies": {
     "del": "^2.2.0",

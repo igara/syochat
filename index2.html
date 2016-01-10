@@ -5,8 +5,9 @@
   <title>SyoChat!</title>
 
   <script type="text/javascript" src="js/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="js/lib/peerjs/peer.min.js"></script>
+  <script type="text/javascript" src="https://skyway.io/dist/0.3/peer.js"></script>
   <script type="text/javascript" src="js/lib/skyway/multiparty.min.js"></script>
+  <script type="text/javascript" src="js/chat/multichat.js"></script>
 </head> 
  
 <body style="background-color: white;"> 
@@ -50,11 +51,12 @@
   </body>
 
   <script>
+    
     var multiparty;
     function start() {
       // MultiParty インスタンスを生成
       multiparty = new MultiParty( {
-        "key": "7b5cadc4-5364-4677-9e6f-8055555592fd",
+        "key": "a604aaf1-82ca-49ac-974f-ab934e66fc1c",
         "reliable": true,
         "debug": 3
       });
